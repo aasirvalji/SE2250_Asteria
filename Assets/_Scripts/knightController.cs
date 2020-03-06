@@ -11,6 +11,12 @@ public class knightController : MonoBehaviour
     float rotation = 0.0f;
     float gravity = 8.0f; // the effect of gravity on knight
 
+    //shooting
+    public GameObject powerPrefab; //different characters have different powers, choose the right prefab
+    public float firingSpeed = 20;
+    Vector3 direction = new Vector3(0, 3, 3);
+
+
     Vector3 moveDir = Vector3.zero; // knight would be still once game starts until it is moved
 
     CharacterController controller; //defining a characterController type variable
@@ -31,6 +37,28 @@ public class knightController : MonoBehaviour
 
         Movement(); // calling the movement method on every frame
         GetInput();
+
+
+        //shoot super powers using the mouse 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TempFire();
+        }
+
+    }
+
+    void TempFire()
+    {
+        GameObject power = Instantiate<GameObject>(powerPrefab); //get prefab of power
+        power.transform.position = transform.position;
+        power.transform.rotation = transform.rotation;
+
+
+        Rigidbody rigidB = power.GetComponent<Rigidbody>();
+        rigidB.velocity = direction * firingSpeed;
+
+        Destroy(rigidB.gameObject, 3);//destory after 3 seconds
+
     }
 
     void Movement()
@@ -114,5 +142,16 @@ public class knightController : MonoBehaviour
         yield return new WaitForSeconds(1); // we wait for a second before we attack everytime
         anim.SetInteger("condition", 0); //after we attack, we idle
         anim.SetBool("attcking", false); // we are not attacking anymore
+    }
+
+    void OnTriggerEnter(Collider other) //triggered everytime player touches a pick up
+    {
+        if (other.gameObject.CompareTag("Food")) //test its tag, and if it matches pick up
+        {
+            other.gameObject.SetActive(false); //then deactivate the touched game piece
+
+        }
+
+
     }
 }
