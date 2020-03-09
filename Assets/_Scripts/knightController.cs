@@ -6,10 +6,10 @@ public class knightController : MonoBehaviour
 {
     //defining aatributes for this class
 
-    float speed = 10.0f; // spped of the knight
-    float rotSpeed = 80.0f; // rotation speed of knight
-    float rotation = 0.0f;
-    float gravity = 8.0f; // the effect of gravity on knight
+   public float speed = 50.0f; // spped of the knight
+   public float rotSpeed = 80.0f; // rotation speed of knight
+   public float rotation = 0.0f;
+   public float gravity = 8.0f; // the effect of gravity on knight
 
     Vector3 moveDir = Vector3.zero; // knight would be still once game starts until it is moved
 
@@ -47,7 +47,7 @@ public class knightController : MonoBehaviour
                 {
                     anim.SetBool("running", true); //when the player moves, the ruuning parameter should be true
                     anim.SetInteger("condition", 1); // setting the condition parameter to 1 when W is pressed
-                                                     // if the input key is W, move the player one step forward
+                     // if the input key is W, move the player one step forward
                     moveDir = new Vector3(0, 0, 1);
                     moveDir *= speed; // this is to match the speed and movement of the player
                     moveDir = transform.TransformDirection(moveDir); // transforms the movement from local to global space
@@ -67,8 +67,8 @@ public class knightController : MonoBehaviour
         }
         rotation += Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime;
         //this allows smooth rotation as the speed of ration gets updates with time on to the horizontal axis
-        transform.localRotation = Quaternion.Euler(0, rotation, 0);
-        // transform.eulerAngles = new Vector3(0, rotation, 0);
+        //transform.localRotation = Quaternion.Euler(0, rotation, 0);
+        transform.eulerAngles = new Vector3(0, rotation, 0);
         // updates the eular angles (camera angles) and sets it at the rotation position
 
         moveDir.y -= gravity * Time.deltaTime; //updates gravity with time

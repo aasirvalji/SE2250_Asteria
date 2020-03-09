@@ -7,11 +7,20 @@ namespace UnityStandardAssets.Characters.ThirdPerson
     [RequireComponent(typeof(ThirdPersonCharacter))]
     public class ThirdPersonUserControl : MonoBehaviour
     {
-        private ThirdPersonCharacter m_Character; // A reference to the ThirdPersonCharacter on the object
+        private ThirdPersonCharacter controller; // A reference to the ThirdPersonCharacter on the object
         private Transform m_Cam;                  // A reference to the main camera in the scenes transform
         private Vector3 m_CamForward;             // The current forward direction of the camera
-        private Vector3 m_Move;
+        private Vector3 moveDir;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
+
+        
+        float speed = 50.0f; // spped of the knight
+        float rotSpeed = 80.0f; // rotation speed of knight
+        float rotation = 0.0f;
+        float gravity = 8.0f; // the effect of gravity on knight
+
+        Animator anim; 
+        
 
 
         private void Start()
@@ -29,21 +38,58 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             }
 
             // get the third person character ( this should never be null due to require component )
-            m_Character = GetComponent<ThirdPersonCharacter>();
+
+            anim = GetComponent<Animator>(); //assigning animator component to the knight(player)
+            controller = GetComponent<ThirdPersonCharacter>();
         }
 
 
-        private void Update()
+       void Update()
         {
-            if (!m_Jump)
-            {
-                m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
-            }
+           
+           // Movement();
         }
+
+        void Movement()
+        {
+            if (controller.isActiveAndEnabled)
+            {
+                if(Input.GetKey(KeyCode.W))
+                {
+                    anim.SetBool("running", true); //when the player moves, the ruuning parameter should be true
+                    anim.SetInteger("condition", 1); // setting the condition parameter to 1 when W is pressed
+                                                     // if the input key is W, move the player one step forward
+                    moveDir = new Vector3(0, 0, 1);
+                    moveDir *= speed; // this is to match the speed and movement of the player
+                    moveDir = transform.TransformDirection(moveDir); // transforms the movement from local to global space
+                }
+
+                if (Input.GetKeyUp(KeyCode.W))
+                {
+
+                    anim.SetBool("running", false); // when the player is still, running paramter is set to false
+                    anim.SetInteger("condition", 0); // seeting the condition parameter back to zero when we stop pressing W
+                   //when we stop pressing W, don't move the player
+                    moveDir = new Vector3(0, 0, 0);
+                }
+
+            }
+
+
+            rotation += Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime;
+            //this allows smooth rotation as the speed of ration gets updates with time on to the horizontal axis
+            transform.localRotation = Quaternion.Euler(0, rotation, 0);
+            // transform.eulerAngles = new Vector3(0, rotation, 0);
+            // updates the eular angles (camera angles) and sets it at the rotation position
+
+            moveDir.y -= gravity * Time.deltaTime; //updates gravity with time
+            
+            controller.Move(moveDir * Time.deltaTime); //moves the player while keeping it updates with time
+        } 
 
 
         // Fixed update is called in sync with physics
-        private void FixedUpdate()
+       /*void FixedUpdate()
         {
             // read inputs
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
@@ -71,6 +117,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             m_Character.Move(m_Move, crouch, m_Jump);
             m_Jump = false;
         }
+        */
     }
 }
 
