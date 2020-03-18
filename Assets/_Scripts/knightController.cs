@@ -16,13 +16,17 @@ public class knightController : MonoBehaviour
     CharacterController controller; //defining a characterController type variable
     Animator anim; // defining an animator type variable
 
+    
+
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>(); //assigning characterController component to the knight(player)
         anim = GetComponent<Animator>(); //assigning animator component to the knight(player)
+
         
+
     }
 
     // Update is called once per frame
