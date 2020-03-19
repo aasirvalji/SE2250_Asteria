@@ -982,6 +982,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5617859605850199467, guid: c21b3179f6e764078b2f280a9ce0accd,
     type: 3}
+<<<<<<< Updated upstream
+=======
+--- !u!1 &819934684 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100168, guid: b235179bd2a63d1468dd430670338c55,
+    type: 3}
+  m_PrefabInstance: {fileID: 1529637852}
+  m_PrefabAsset: {fileID: 0}
+--- !u!143 &819934685
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819934684}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &819934686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819934684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc230b5952b5b4445a830817895093c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &819934687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819934684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0bead843377a494988a4cb25f19eaf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 8138570290435154868, guid: 5a94e998165434b73bee4daa9c1f1f78,
+    type: 3}
+  projectileSpeed: 5
+>>>>>>> Stashed changes
 --- !u!1 &829562493
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,10 +1505,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 1219686425}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+=======
+  m_GameObject: {fileID: 1522140652}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.040002443, y: 1.71, z: -3.057367}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+>>>>>>> Stashed changes
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
