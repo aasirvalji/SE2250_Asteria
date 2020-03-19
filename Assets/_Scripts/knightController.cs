@@ -16,13 +16,17 @@ public class knightController : MonoBehaviour
     CharacterController controller; //defining a characterController type variable
     Animator anim; // defining an animator type variable
 
+    
+
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>(); //assigning characterController component to the knight(player)
         anim = GetComponent<Animator>(); //assigning animator component to the knight(player)
+
         
+
     }
 
     // Update is called once per frame
@@ -109,10 +113,10 @@ public class knightController : MonoBehaviour
 
     IEnumerator AttackingRoutine()
     {
-        anim.SetBool("attcking", true); // setting attacking parameter to true
-        anim.SetInteger("condition", 2); // this sets the consition parameter to 2 which triggers the attacking animation
+        anim.SetBool("attacking", true); // setting attacking parameter to true
+        anim.SetInteger("condition", 2); // this sets the condition parameter to 2 which triggers the attacking animation
         yield return new WaitForSeconds(1); // we wait for a second before we attack everytime
         anim.SetInteger("condition", 0); //after we attack, we idle
-        anim.SetBool("attcking", false); // we are not attacking anymore
+        anim.SetBool("attacking", false); // we are not attacking anymore
     }
 }

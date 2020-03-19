@@ -44,9 +44,10 @@ Camera:
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_GateFitMode: 2
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -127,7 +128,7 @@ GameObject:
   - component: {fileID: 5617859605840717337}
   - component: {fileID: 5617859604210091299}
   - component: {fileID: 5617859604210091298}
-  - component: {fileID: 5617859604210091300}
+  - component: {fileID: 6143104478097338552}
   m_Layer: 0
   m_Name: ToonRTS_demo_Knight
   m_TagString: Untagged
@@ -205,7 +206,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.7, z: 0}
---- !u!114 &5617859604210091300
+--- !u!114 &6143104478097338552
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -273,6 +274,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
