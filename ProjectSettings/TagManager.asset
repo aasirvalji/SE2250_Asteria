@@ -4,7 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< Updated upstream
   - Projectile
+=======
+  - Ethan
+  - Enemy
+  - Projectile
+  - Food
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

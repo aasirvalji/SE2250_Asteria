@@ -94,6 +94,16 @@ public class ethanController : MonoBehaviour
 
     }
 
+    void OnTriggerEnter(Collider other) //triggered everytime player touches a food item
+    {
+        if (other.gameObject.CompareTag("Food")) //test its tag, and if it matches pick up
+        {
+            other.gameObject.SetActive(false); //then deactivate the touched game piece
+
+        }
+
+    }
+
 
 }
 

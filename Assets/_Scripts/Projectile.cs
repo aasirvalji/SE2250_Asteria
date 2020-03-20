@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+<<<<<<< Updated upstream
 
     public GameObject projectilePrefab; //to get the projectile prefab
     public float projectileSpeed; //speed
@@ -37,4 +38,31 @@ public class Projectile : MonoBehaviour
 
           }
 
+=======
+    public GameObject projectilePrefab; //projectile prefab to be set in the inspector
+    public float projectileSpeed; //speed
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TempFire();
+
+        }
+    }
+
+    void TempFire()
+    {
+
+        GameObject projGo = Instantiate<GameObject>(projectilePrefab);
+        projGo.transform.position = transform.position;
+        projGo.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+  
+
+        projGo.GetComponent<Rigidbody>().velocity = gameObject.transform.position + Vector3.forward * projectileSpeed;
+
+        Destroy(projGo, 3);
+    }
+>>>>>>> Stashed changes
 }
