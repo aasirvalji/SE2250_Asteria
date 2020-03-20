@@ -8,7 +8,7 @@ public class ethanController : MonoBehaviour
     float rotSpeed = 80.0f; // rotation speed of player
     float rotation = 0.0f;
     float gravity = 8.0f; // the effect of gravity on player
-    float jumpAmount = 4.0f;
+    float jumpSpeed = 4.0f; // jump speed of the player
 
     Vector3 moveDir = Vector3.zero; // player would be still once game starts until it is moved
 
@@ -25,7 +25,7 @@ public class ethanController : MonoBehaviour
 
     void Update()
     {
-        Movement();
+        Movement(); // calling these functions after every frame
         GetInput();
     }
 
@@ -72,25 +72,41 @@ public class ethanController : MonoBehaviour
     {
         if (controller.isGrounded)
         {
-            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey("w"))
+            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey("w"))  // when you press shift + w
             {
                 Running();
                 transform.position += transform.TransformDirection(Vector3.forward) * Time.deltaTime * speed * 2.5f; // makes the player sprint
             }
 
-            
+            if (Input.GetButton("Jump")) // pressing space bar
+            {
+                Jumping(); // calling jumping function
+            }
 
-    }
+
+        }
     }
 
-    void Running()
+    void Running()   
     {
-        anim.SetInteger("condition", 2);
+        anim.SetInteger("condition", 2);  // this makes the player perform running animation
 
-       
 
     }
 
+    void Jumping()
+    {
+        StartCoroutine(JumpingRoutine());
+    }
+
+    IEnumerator JumpingRoutine()
+    {
+        anim.SetBool("is_in_air", true);  
+        moveDir.y = jumpSpeed; // makes the player jump with the jumpspeed
+        yield return new WaitForSeconds(1); // we wait for a second before we attack everytime
+        anim.SetInteger("condition", 0); // after jump make them idle
+        anim.SetBool("is_in_air", false); // player not jumping anymore
+    }
 
 }
 
