@@ -51,7 +51,6 @@ public class HealthBar : MonoBehaviour
         set
         {
             currentLevel = value;
-            HandleExperiencePts();
         }
     }
 
@@ -88,8 +87,7 @@ public class HealthBar : MonoBehaviour
         }
 
         // if enemy does damage, decrease health
-        if (go.tag == "Enemy")
-        {
+
             if (other.name == "Damage")
             {
                 if (!onCD && currentHealth > 0)
@@ -97,14 +95,10 @@ public class HealthBar : MonoBehaviour
                     StartCoroutine(CoolDownDmg());
                     CurrentHealth -= 50;
                 }
-                // if enemy is dead, add 100 exp points
-                if (go == null)
-                {
-                    currentLevel += 100;
-                }
+
             }
         }
-    }
+    
 
     private void HandleHealth()
     {
@@ -126,22 +120,6 @@ public class HealthBar : MonoBehaviour
         }
     }
 
-    private void HandleExperiencePts()
-    {
-        // text of exp pts.
-        expText.text = "Level " + currentLevel + ": " + "EP: " + expLevel;
-
-        // resetting the exp bar
-        if (currentLevel == 1000)
-        {
-            expLevel += expLevel;
-            currentLevel = 0;
-        }
-        //getting position of exp bar
-        float currentXValue = MapValues(currentLevel, 0, maxExp, minX, maxX);
-        expTransform.position = new Vector3(currentXValue, cachedY);
-
-    }
 
     IEnumerator CoolDownDmg()
     {
