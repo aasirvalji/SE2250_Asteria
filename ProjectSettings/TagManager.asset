@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ethan
   - Enemy
+  - Food
   layers:
   - Default
   - TransparentFX
