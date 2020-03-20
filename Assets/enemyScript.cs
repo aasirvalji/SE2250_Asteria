@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class enemyScript : MonoBehaviour
 {
 
-    public Transform Player;
+    public GameObject Player;
     float MoveSpeed = 10f;
     int MaxDist = 10;
     int MinDist = 5;
@@ -22,16 +22,14 @@ public class enemyScript : MonoBehaviour
 
     void Update()
     {
-        direction = Player.position - rb.transform.position;
+        direction = Player.transform.position - rb.transform.position;
 
-        if (Vector3.Distance(transform.position, Player.position) >= MinDist)
+        if (Vector3.Distance(transform.position, Player.transform.position) >= MinDist)
         {
-
-            print(direction);
             rb.MovePosition(transform.position + (direction * MoveSpeed * Time.deltaTime));
 
 
-            if (Vector3.Distance(transform.position, Player.position) <= MaxDist)
+            if (Vector3.Distance(transform.position, Player.transform.position) <= MaxDist)
             {
                 //Here Call any function U want Like Shoot at here or something
             }

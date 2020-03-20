@@ -29,6 +29,15 @@ public class sampleEnemy : MonoBehaviour
 
 		badGuy.SetDestination(newPos);
 
+    }
 
-	}
+    void OnCollisionEnter(Collider target)
+    {
+        if (target.gameObject.tag.Equals("Ethan"))
+        {
+            print("yeet");
+        }
+    }
+
+
 }
