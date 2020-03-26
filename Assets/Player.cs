@@ -33,6 +33,11 @@ public class Player : MonoBehaviour
             GetHealth(20);
             other.gameObject.SetActive(false); //then deactivate the food
         }
+
+        if (other.tag.Equals("Teleporter"))
+        {
+            SceneManager.LoadScene("Level2");
+        }
     }
 
     void GetHealth(int health)

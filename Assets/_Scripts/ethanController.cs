@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ethanController : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class ethanController : MonoBehaviour
     float jumpSpeed = 4.0f; // jump speed of the player
 
     Vector3 moveDir = Vector3.zero; // player would be still once game starts until it is moved
+
+    Vector3 endOfLevel = new Vector3(180, 2, 418);
+    bool loadNextLevel = false;
 
     CharacterController controller; //defining a characterController type variable
     Animator anim; // defining an animator type variable
@@ -27,8 +31,28 @@ public class ethanController : MonoBehaviour
     {
         Movement(); // calling these functions after every frame
         GetInput();
-    }
 
+        if ((transform.position.x > endOfLevel.x) && (transform.position.z > endOfLevel.z))
+        {
+ 
+         /*   if (loadNextLevel == false)
+            {
+                loadNextLevel = true;
+                reloadLevel(loadNextLevel);
+
+            } */
+        }
+    }
+    /*
+    void reloadLevel(bool restart)
+    {
+        if (restart)
+        {
+            print("yeet");
+            SceneManager.LoadScene("Level2");
+        }
+    }
+    */
  
     void Movement()
     {
