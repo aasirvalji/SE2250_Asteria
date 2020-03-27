@@ -4,7 +4,7 @@ in order to get the reward as it is rumored that the reward is a massive cash pr
 
 The rich man wishes you the best of luck!
 
-Controls:
+# Controls
 W - Move Foward
 D - Move Right
 A - Move Left
