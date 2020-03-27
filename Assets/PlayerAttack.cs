@@ -16,6 +16,7 @@ public class PlayerAttack : MonoBehaviour
             Rigidbody rb = fireball.GetComponent<Rigidbody>();
             rb.velocity = transform.forward * projectileSpeed;
             Destroy(fireball, 3.0f);
+
         }
     }
 }

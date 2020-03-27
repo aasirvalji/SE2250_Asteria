@@ -9,6 +9,7 @@ TagManager:
   - Food
   - Boundary
   - Teleporter
+  - PointPickup
   layers:
   - Default
   - TransparentFX

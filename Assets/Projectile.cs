@@ -6,7 +6,6 @@ public class Projectile : MonoBehaviour
 {
     public GameObject explosion;
 
-
     void OnTriggerEnter(Collider other)
     {
         if (other.tag.Equals("Enemy"))
@@ -14,6 +13,7 @@ public class Projectile : MonoBehaviour
             Debug.Log(other.gameObject);
             other.GetComponent<BoxCollider>().enabled = false;
             other.GetComponent<MeshRenderer>().enabled = false;
+            Destroy(this.gameObject);
         }
     }
 }
