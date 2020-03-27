@@ -11,11 +11,15 @@ public class Player : MonoBehaviour
     public int currentHealth;
     public HealthSlider healthBar;
     public GameObject player;
+    public GameObject playerBody;
+
+    public GameObject gameOver;
 
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+
     }
 
     void Update()
@@ -48,6 +52,7 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Full health");
             healthText.text = "Health: " + currentHealth;
+           
         }
         else
         {
@@ -63,13 +68,18 @@ public class Player : MonoBehaviour
         if (currentHealth >= 20)
         {
             currentHealth -= damage;
-
+            print("damage taken");
             healthBar.SetHealth(currentHealth);
             healthText.text = "Health: " + currentHealth;
         }
-        else if (currentHealth <= 0)
+        else if (currentHealth <= 20)
         {
-            player.SetActive(false);
+
+            gameOver.SetActive(true);
+
+            print("printing from Player.cs script");
+            SkinnedMeshRenderer temp = playerBody.GetComponent<SkinnedMeshRenderer>();
+            temp.enabled = false;
         }
     }
 }
