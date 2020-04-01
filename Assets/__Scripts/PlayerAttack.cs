@@ -7,10 +7,7 @@ public class PlayerAttack : MonoBehaviour
 {
     public GameObject projectile;
     public float projectileSpeed;
-   
-
     
-
 
     void Update()
     {
@@ -23,8 +20,11 @@ public class PlayerAttack : MonoBehaviour
             Destroy(fireball, 3.0f);
 
         }
-        
+
     }
 
-   
+    
+
+
+
 }

@@ -113,6 +113,14 @@ public class ethanController : MonoBehaviour
                 punch();
             }
 
+            if (Input.GetKey(KeyCode.K))
+            {
+                kick();
+            }
+            if (Input.GetKey(KeyCode.L))
+            {
+                kick_2();
+            }
             if (Input.GetKey(KeyCode.F))
             {
                 Dance();
@@ -121,6 +129,10 @@ public class ethanController : MonoBehaviour
             if (Input.GetKey(KeyCode.G))
             {
                 Die();
+            }
+            if (Input.GetKey(KeyCode.M))
+            {
+                Throw();
             }
 
 
@@ -143,10 +155,21 @@ public class ethanController : MonoBehaviour
     {
         StartCoroutine(punching());
     }
-
+    void kick()
+    {
+        StartCoroutine(kicking());
+    }
+    void kick_2()
+    {
+        StartCoroutine(kicking_2());
+    }
     void Dance()
     {
         StartCoroutine(dancing());
+    }
+    void Throw()
+    {
+        StartCoroutine(throwing());
     }
 
     void Die()
@@ -173,12 +196,35 @@ public class ethanController : MonoBehaviour
         anim.SetBool("Attack", false); // player not jumping anymore
     }
 
+    IEnumerator kicking()
+    {
+        anim.SetBool("kicking", true); //makes the character punch
+        yield return new WaitForSeconds(1); // we wait for a second before we attack everytime
+        anim.SetInteger("condition", 0); // after punch we idle
+        anim.SetBool("kicking", false); // player not jumping anymore
+    }
+    IEnumerator kicking_2()
+    {
+        anim.SetBool("anotherKicking", true); //makes the character punch
+        yield return new WaitForSeconds(1); // we wait for a second before we attack everytime
+        anim.SetInteger("condition", 0); // after punch we idle
+        anim.SetBool("anotherKicking", false); // player not jumping anymore
+    }
+
     IEnumerator dancing()
     {
         anim.SetBool("Dancing", true); //makes the character dance
         yield return new WaitForSeconds(13); // we wait for a second before we attack everytime
         anim.SetInteger("condition", 0); // after dance we idle
         anim.SetBool("Dancing", false); // player not jumping anymore
+    }
+
+    IEnumerator throwing()
+    {
+        anim.SetBool("throwing", true); //makes the character punch
+        yield return new WaitForSeconds(2); // we wait for a second before we attack everytime
+        anim.SetInteger("condition", 0);
+        anim.SetBool("throwing", false);
     }
 }
 
