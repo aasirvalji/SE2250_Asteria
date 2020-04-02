@@ -25,7 +25,7 @@ public class Level2EnemiesRemaining : MonoBehaviour
         if (Stats.EnemiesRemaining <= 0)
         {
             print("reached");
-            SceneManager.LoadScene("Level3");
+            SceneManager.LoadScene("Level3Castle");
         }
         else
         {

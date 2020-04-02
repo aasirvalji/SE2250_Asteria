@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DestroyByContact : MonoBehaviour
 {
@@ -24,6 +25,17 @@ public class DestroyByContact : MonoBehaviour
         if (other.tag == "Player")
         {
             Instantiate(explosion, other.transform.position, other.transform.rotation); //spaws explosion after game object is destroyed
+
+            IEnumerator ExecuteAfterTime(float time)
+            {
+                yield return new WaitForSeconds(time);
+
+                // Code to execute after the delay
+
+                SceneManager.LoadScene("PostLevel2");
+            }
+
+            StartCoroutine(ExecuteAfterTime(2));
         }
 
 
