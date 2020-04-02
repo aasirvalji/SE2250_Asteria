@@ -840,8 +840,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You've found your way across the sea of despair. Cross the field or peril
-    and try to find the orb of Asteria.
+  m_text: You've found your way across the sea of despair. Try to find the four gems
+    of Asteria. It is important to note that the gems of Asteria can be found farthest
+    from the heart.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -911,12 +912,12 @@ MonoBehaviour:
   m_margin: {x: 1.6464233, y: 4.1705933, z: 2.6693115, w: 0.06286621}
   m_textInfo:
     textComponent: {fileID: 1613123625}
-    characterCount: 109
+    characterCount: 173
     spriteCount: 0
-    spaceCount: 21
-    wordCount: 22
+    spaceCount: 33
+    wordCount: 34
     linkCount: 0
-    lineCount: 3
+    lineCount: 4
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0

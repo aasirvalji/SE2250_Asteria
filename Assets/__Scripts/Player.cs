@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 
 
     public GameObject gameOver;
+    public GameObject restartLevel;
 
     private Vector3 bossToPlayerDistance;
     public Transform boss;
@@ -96,6 +97,7 @@ public class Player : MonoBehaviour
             anim.SetBool("Dying", true);  // player does the dying animation when the health goes to zero
 
             gameOver.SetActive(true); // displays the message 'Game Over'
+            restartLevel.SetActive(true); //shows reset button
 
             print("printing from Player.cs script");
             //SkinnedMeshRenderer temp = playerBody.GetComponent<SkinnedMeshRenderer>();
