@@ -6,6 +6,7 @@ public static class Stats
 {
 	private static int points = 0;
     private static int enemies = 0;
+    private static bool buttonsEnabled = true;
 
     public static int Points
 	{
@@ -30,6 +31,19 @@ public static class Stats
             enemies = value;
         }
     }
+    /* backup to set ethans movement to false
+    public static bool ButtonsEnabled
+    {
+        get
+        {
+            return buttonsEnabled;
+        }
+        set
+        {
+            buttonsEnabled = value;
+        }
+    }
+    */
 }
 
 

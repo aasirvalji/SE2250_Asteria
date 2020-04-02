@@ -21,11 +21,14 @@ public class DestroyByContact : MonoBehaviour
             
         }
 
+        if (other.tag == "Player")
+        {
+            Instantiate(explosion, other.transform.position, other.transform.rotation); //spaws explosion after game object is destroyed
+        }
+
 
         Destroy(other.gameObject); //destroys the collider (i.e. bolt) 
         Destroy(gameObject); //destroys itself
-
-      Instantiate(explosion, other.transform.position, other.transform.rotation); //spaws explosion after game object is destroyed
 
         destroyPosition = other.transform.position;
 

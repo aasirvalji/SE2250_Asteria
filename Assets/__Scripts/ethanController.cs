@@ -97,7 +97,7 @@ public class ethanController : MonoBehaviour
     {
         if (controller.isGrounded)
         {
-            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey("w"))  // when you press shift + w
+            if ((Input.GetKey(KeyCode.LeftShift) && Input.GetKey("w")) /*&& Stats.ButtonsEnabled*/)  // when you press shift + w
             {
                 Running();
                 transform.position += transform.TransformDirection(Vector3.forward) * Time.deltaTime * speed * 2.5f; // makes the player sprint
