@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ethanController : MonoBehaviour
 {
@@ -14,6 +15,12 @@ public class ethanController : MonoBehaviour
 
     Vector3 direction;
     public Transform player;
+
+    // Create a temporary reference to the current scene.
+    Scene currentScene;
+
+    // Retrieve the name of this scene.
+    string sceneName;
 
 
     Vector3 moveDir = Vector3.zero; // player would be still once game starts until it is moved
@@ -29,6 +36,10 @@ public class ethanController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>(); //assigning characterController component to the player
         anim = GetComponent<Animator>(); //assigning animator component to the player
+
+        currentScene = SceneManager.GetActiveScene();
+
+        sceneName = currentScene.name;
 
     }
 
@@ -112,18 +123,23 @@ public class ethanController : MonoBehaviour
                 Jumping(); // calling jumping function
             }
 
-            if (Input.GetKey(KeyCode.P))
+            if (sceneName == "FinalBattle")
             {
-                punch();
-            }
 
-            if (Input.GetKey(KeyCode.K))
-            {
-                kick();
-            }
-            if (Input.GetKey(KeyCode.L))
-            {
-                kick_2();
+                if (Input.GetKey(KeyCode.P))
+                {
+                    punch();
+                }
+
+                if (Input.GetKey(KeyCode.K))
+                {
+                    kick();
+                }
+                if (Input.GetKey(KeyCode.L))
+                {
+                    kick_2();
+                }
+
             }
             if (Input.GetKey(KeyCode.F))
             {

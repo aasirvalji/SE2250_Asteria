@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
 
     private float _nextFire;
 
+    public GameObject gameOver;
+    public GameObject restartLevel;
+
     void Update()
 	{
         //shooting
@@ -31,7 +34,17 @@ public class PlayerController : MonoBehaviour
         }
     
 	}
-    
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            gameOver.SetActive(true); // displays the message 'Game Over'
+            restartLevel.SetActive(true); //shows reset button
+        }
+        
+    }
+
 
     // called every physics step
     void FixedUpdate()

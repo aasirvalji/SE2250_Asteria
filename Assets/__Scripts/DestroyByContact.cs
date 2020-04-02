@@ -10,6 +10,8 @@ public class DestroyByContact : MonoBehaviour
     public Vector3 destroyPosition;
     public GameObject ring;
 
+  
+
     void OnTriggerEnter(Collider other)
 	{
         if(other.tag== "Boundary") //ensures that the monster ignores contact with boundry
@@ -26,16 +28,6 @@ public class DestroyByContact : MonoBehaviour
         {
             Instantiate(explosion, other.transform.position, other.transform.rotation); //spaws explosion after game object is destroyed
 
-            IEnumerator ExecuteAfterTime(float time)
-            {
-                yield return new WaitForSeconds(time);
-
-                // Code to execute after the delay
-
-                SceneManager.LoadScene("PostLevel2");
-            }
-
-            StartCoroutine(ExecuteAfterTime(2));
         }
 
 

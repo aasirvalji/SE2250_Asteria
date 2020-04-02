@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3640222354118588354}
   m_Layer: 0
   m_Name: Sea Creature
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,6 +81,8 @@ MonoBehaviour:
   explosion: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
   destroyPosition: {x: 0, y: 0, z: 0}
   ring: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
+  gameOver: {fileID: 0}
+  restartLevel: {fileID: 0}
 --- !u!114 &1107131975768477592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +114,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fSpeed: 3
-  zPlaneObject: {fileID: 0}
 --- !u!1001 &1107131976588968055
 PrefabInstance:
   m_ObjectHideFlags: 0

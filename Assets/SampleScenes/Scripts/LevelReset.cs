@@ -1,18 +1,14 @@
-using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class LevelReset :MonoBehaviour , IPointerClickHandler
+public class LevelReset :MonoBehaviour
 {
-    public void OnPointerClick(PointerEventData data)
+    public void ResetLevel()
     {
         // reload the scene
         SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
     }
 
-
-    private void Update()
-    {
-    }
 }

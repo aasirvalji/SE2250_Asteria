@@ -11,8 +11,7 @@ public class Player : MonoBehaviour
     public int currentHealth;
     public HealthSlider healthBar;
     public GameObject player;
-    public GameObject playerBody;
-    public ethanController disableMovementOnDeath;
+
     Animator anim; // defining an animator type variable
 
 
