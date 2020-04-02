@@ -54,7 +54,7 @@ public class Gem : MonoBehaviour
     void SetCountText()
     {
         countText.text =  _count.ToString() + "/4 gems obtained";
-        if (_count >= 1) //if score is equal to 4, then print the win text
+        if (_count >= 4) //if score is equal to 4, then print the win text
         {
             winText.text = "4/4 gems found! The Orb of Asteria is complete.";
             allGemsActive.SetActive(false);
