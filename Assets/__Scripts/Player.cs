@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
 
     public GameObject gameOver;
 
+    private Vector3 bossToPlayerDistance;
+    public Transform boss;
+
     void Start()
     {
         
@@ -28,7 +31,14 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        
+/*
+        bossToPlayerDistance = this.transform.position - boss.position;
+
+        if (bossToPlayerDistance.magnitude < 10)
+        {
+            TakeDamage(20);
+
+        } */
     }
 
     void OnTriggerEnter(Collider other)
@@ -67,7 +77,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         if (currentHealth >= 20)
         {

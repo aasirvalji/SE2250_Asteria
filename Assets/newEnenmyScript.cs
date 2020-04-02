@@ -6,9 +6,11 @@ public class newEnenmyScript : MonoBehaviour
 {
     public Transform player;
     static Animator anim;
-    float speed = 8.0f; // spped of the player
+    float speed = 10.0f; // spped of the player
     CharacterController controller; //defining a characterController type variable
     Vector3 moveDir = Vector3.zero; // player would be still once game starts until it is moved
+
+    public Player playerScript;
 
     void Start()
     {
@@ -39,8 +41,15 @@ public class newEnenmyScript : MonoBehaviour
             }
             else
             {
-                anim.SetBool("walking", false);
-                anim.SetBool("attacking", true);
+
+
+              
+                    
+                    anim.SetBool("walking", false);
+                    anim.SetBool("attacking", true);
+                StartCoroutine("DoCheck");
+
+
             }
             
         }
@@ -55,5 +64,14 @@ public class newEnenmyScript : MonoBehaviour
         controller.Move(moveDir * Time.deltaTime); //moves the player while keeping it updates with time
 
     }
-  
+
+    IEnumerator DoCheck()
+    {
+            // execute block of code here
+            yield return new WaitForSeconds(2f);
+
+            playerScript.TakeDamage(20);
+        
+    }
+
 }

@@ -35,6 +35,15 @@ public class PlayerPoints : MonoBehaviour
         }
 
 
+        if (other.tag.Equals("RingPickup"))
+         
+        {
+            print(other.gameObject);
+            GainPoints(30); //add this many points
+            other.gameObject.SetActive(false); //then deactivate the pickup
+        }
+
+
     }
 
     void GainPoints(int points)

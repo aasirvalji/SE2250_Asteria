@@ -10,6 +10,8 @@ TagManager:
   - Boundary
   - Teleporter
   - PointPickup
+  - Fire
+  - RingPickup
   layers:
   - Default
   - TransparentFX
