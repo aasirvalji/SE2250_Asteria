@@ -3965,6 +3965,7 @@ MonoBehaviour:
   healthText: {fileID: 2110143067}
   currentHealth: 0
   healthBar: {fileID: 1007873325}
+  gameOverExplosion: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
   gameOver: {fileID: 64897274}
   youWin: {fileID: 1947359320}
 --- !u!114 &1856438568

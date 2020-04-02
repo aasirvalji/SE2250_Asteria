@@ -31,18 +31,6 @@ public class Player : MonoBehaviour
 
     }
 
-    void Update()
-    {
-/*
-        bossToPlayerDistance = this.transform.position - boss.position;
-
-        if (bossToPlayerDistance.magnitude < 10)
-        {
-            TakeDamage(20);
-
-        } */
-    }
-
     void OnTriggerEnter(Collider other)
     {
         if (other.tag.Equals("Enemy"))
@@ -98,9 +86,6 @@ public class Player : MonoBehaviour
             gameOver.SetActive(true); // displays the message 'Game Over'
             restartLevel.SetActive(true); //shows reset button
 
-            print("printing from Player.cs script");
-            //SkinnedMeshRenderer temp = playerBody.GetComponent<SkinnedMeshRenderer>();
-            //temp.enabled = false;
         }
     }
 

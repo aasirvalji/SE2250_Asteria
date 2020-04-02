@@ -11,6 +11,8 @@ public class Boss : MonoBehaviour
     public int currentHealth;
     public HealthSlider healthBar;
 
+    public GameObject gameOverExplosion;
+
     public GameObject gameOver;
     public GameObject youWin;
 
@@ -25,17 +27,6 @@ public class Boss : MonoBehaviour
 
     }
 
-    void Update()
-    {
-        /*
-                bossToPlayerDistance = this.transform.position - boss.position;
-
-                if (bossToPlayerDistance.magnitude < 10)
-                {
-                    TakeDamage(20);
-
-                } */
-    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -59,6 +50,8 @@ public class Boss : MonoBehaviour
         }
         else if (currentHealth < 20)
         {
+            this.gameObject.SetActive(false);
+            Instantiate(gameOverExplosion, transform.position, transform.rotation);
             gameOver.SetActive(true);
             youWin.SetActive(true);// displays the message 'Game Over'
 
