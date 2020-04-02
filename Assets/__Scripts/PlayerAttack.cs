@@ -7,23 +7,27 @@ public class PlayerAttack : MonoBehaviour
 {
     public GameObject projectile;
     public float projectileSpeed;
-    
+
+    public Vector3 fireballSpawn;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
-            
-            GameObject fireball = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
+
+            fireballSpawn = transform.position;
+            fireballSpawn.y += 6.2f;
+
+            GameObject fireball = Instantiate(projectile, fireballSpawn, transform.rotation) as GameObject;
             Rigidbody rb = fireball.GetComponent<Rigidbody>();
             rb.velocity = transform.forward * projectileSpeed;
-            Destroy(fireball, 3.0f);
+            Destroy(fireball, 5.0f);
 
         }
 
     }
 
-    
+
 
 
 

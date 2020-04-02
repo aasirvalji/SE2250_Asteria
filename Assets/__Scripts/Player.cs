@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public HealthSlider healthBar;
     public GameObject player;
     public GameObject playerBody;
+    public ethanController disableMovementOnDeath;
     Animator anim; // defining an animator type variable
 
 
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
         
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        healthText.text = "Health: " + maxHealth.ToString();
         anim = GetComponent<Animator>(); //assigning animator component to the player
 
     }
@@ -79,15 +81,16 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (currentHealth >= 20)
+        if (currentHealth >= 10)
         {
             currentHealth -= damage;
             print("damage taken");
             healthBar.SetHealth(currentHealth);
             healthText.text = "Health: " + currentHealth;
         }
-        else if (currentHealth <= 20)
+        else if (currentHealth < 10)
         {
+            
             anim.SetBool("Dying", true);  // player does the dying animation when the health goes to zero
 
             gameOver.SetActive(true); // displays the message 'Game Over'

@@ -12,6 +12,7 @@ TagManager:
   - PointPickup
   - Fire
   - RingPickup
+  - Knight
   layers:
   - Default
   - TransparentFX

@@ -11,6 +11,7 @@ public class newEnenmyScript : MonoBehaviour
     Vector3 moveDir = Vector3.zero; // player would be still once game starts until it is moved
 
     public Player playerScript;
+    private float nextUpdate = 1.5f;
 
     void Start()
     {
@@ -21,7 +22,7 @@ public class newEnenmyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     if(Vector3.Distance(player.position, this.transform.position)<70) //checks the distance between player and knight
+        if (Vector3.Distance(player.position, this.transform.position) < 70) //checks the distance between player and knight
         {
             Vector3 direction = player.position - this.transform.position; //work out the direction
             direction.y = 0;
@@ -29,7 +30,7 @@ public class newEnenmyScript : MonoBehaviour
                 Quaternion.LookRotation(direction), 0.1f); //make the knight rotate towards the player
 
             anim.SetBool("idle", false);
-            if (direction.magnitude >  15)
+            if (direction.magnitude > 20)
             {
                 anim.SetBool("walking", true);
                 anim.SetBool("attacking", false);
@@ -37,21 +38,32 @@ public class newEnenmyScript : MonoBehaviour
                 moveDir = new Vector3(0, 0, 1);
                 moveDir *= speed;
                 moveDir = transform.TransformDirection(moveDir); // transforms the movement from local to global space
-               
+
             }
             else
             {
 
 
-              
-                    
-                    anim.SetBool("walking", false);
-                    anim.SetBool("attacking", true);
-                StartCoroutine("DoCheck");
 
+
+                anim.SetBool("walking", false);
+                anim.SetBool("attacking", true);
+
+
+                if (Time.time >= nextUpdate)
+                {
+                    // Change the next update (current second+1)
+                    nextUpdate = Mathf.FloorToInt(Time.time) + 1;
+                    // Call your fonction
+                    UpdateEverySecond();
+                }
+
+                void UpdateEverySecond()
+                { 
+                    playerScript.TakeDamage(10);
+                }
 
             }
-            
         }
 
         else
