@@ -21,7 +21,7 @@ public class PlayerAttack : MonoBehaviour
             GameObject fireball = Instantiate(projectile, fireballSpawn, transform.rotation) as GameObject;
             Rigidbody rb = fireball.GetComponent<Rigidbody>();
             rb.velocity = transform.forward * projectileSpeed;
-            Destroy(fireball, 5.0f);
+            Destroy(fireball, 0.4f);
 
         }
 

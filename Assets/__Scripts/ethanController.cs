@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ethanController : MonoBehaviour
 {
@@ -10,7 +9,12 @@ public class ethanController : MonoBehaviour
     float rotation = 0.0f;
     float gravity = 8.0f; // the effect of gravity on player
     float jumpSpeed = 10.0f; // jump speed of the player
-    
+    public Boss bossScript;
+    private float nextUpdate = 1.5f;
+
+    Vector3 direction;
+    public Transform player;
+
 
     Vector3 moveDir = Vector3.zero; // player would be still once game starts until it is moved
 
@@ -32,7 +36,7 @@ public class ethanController : MonoBehaviour
     {
         Movement(); // calling these functions after every frame
         GetInput();
-
+        direction = player.position - this.transform.position; //work out the direction
         if ((transform.position.x > endOfLevel.x) && (transform.position.z > endOfLevel.z))
         {
  
@@ -194,7 +198,17 @@ public class ethanController : MonoBehaviour
 
     IEnumerator punching()
     {
+       /* print(Mathf.Abs(bossScript.transform.rotation.y - transform.rotation.y)); */
         anim.SetBool("Attack", true); //makes the character punch
+
+
+        if (direction.magnitude < 10) //if the distance between the boss and the player is less than 10
+        { //if the Player is facing the boss while punching
+            if(0.6 < Mathf.Abs(bossScript.transform.rotation.y - transform.rotation.y) && Mathf.Abs(bossScript.transform.rotation.y - transform.rotation.y) < 1.4)
+            damageBoss();
+        }
+
+
         yield return new WaitForSeconds(1); // we wait for a second before we attack everytime
         anim.SetInteger("condition", 0); // after punch we idle
         anim.SetBool("Attack", false); // player not jumping anymore
@@ -203,6 +217,13 @@ public class ethanController : MonoBehaviour
     IEnumerator kicking()
     {
         anim.SetBool("kicking", true); //makes the character punch
+
+        if (direction.magnitude < 10) //if the distance between the boss and the player is less than 10
+        { //if the Player is facing the boss while punching
+            if (0.6 < Mathf.Abs(bossScript.transform.rotation.y - transform.rotation.y) && Mathf.Abs(bossScript.transform.rotation.y - transform.rotation.y) < 1.4)
+                damageBoss();
+        }
+
         yield return new WaitForSeconds(1); // we wait for a second before we attack everytime
         anim.SetInteger("condition", 0); // after punch we idle
         anim.SetBool("kicking", false); // player not jumping anymore
@@ -241,6 +262,23 @@ public class ethanController : MonoBehaviour
         yield return new WaitForSeconds(4); // we wait for a second before we attack everytime
         anim.SetInteger("condition", 0);
         
+    }
+
+    void damageBoss()
+    {
+
+        if (Time.time >= nextUpdate) //creates delay during punch damage
+        {
+            // Change the next update (current second+1)
+            nextUpdate = Mathf.FloorToInt(Time.time) + 1;
+            // Call your fonction
+            UpdateEverySecond();
+        }
+
+        void UpdateEverySecond()
+        {
+            bossScript.TakeDamage(10); //reduces boss health bar
+        }
     }
 }
 
