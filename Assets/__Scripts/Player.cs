@@ -91,7 +91,8 @@ public class Player : MonoBehaviour
         else if (currentHealth < 10)
         {
             /* Stats.ButtonsEnabled = false; */
-      
+            anim.SetBool("walking", false); 
+            anim.SetBool("running", false); 
             anim.SetBool("Dying", true);  // player does the dying animation when the health goes to zero
 
             gameOver.SetActive(true); // displays the message 'Game Over'

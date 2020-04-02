@@ -135,12 +135,14 @@ public class ethanController : MonoBehaviour
                 Throw();
             }
 
+            
 
         }
     }
 
     void Running()   
     {
+
         anim.SetInteger("condition", 2);  // this makes the player perform running animation
 
 
@@ -174,7 +176,9 @@ public class ethanController : MonoBehaviour
 
     void Die()
     {
-        anim.SetBool("Dying", true); // does the dying animation
+        
+        StartCoroutine(dying());
+        
 
     }
 
@@ -225,6 +229,18 @@ public class ethanController : MonoBehaviour
         yield return new WaitForSeconds(2); // we wait for a second before we attack everytime
         anim.SetInteger("condition", 0);
         anim.SetBool("throwing", false);
+    }
+
+    IEnumerator dying()
+    {
+
+        
+        anim.SetBool("walking", false); //makes the character punch
+        anim.SetBool("running", false); //makes the character punch
+        anim.SetBool("Dying", true); //makes the character punch
+        yield return new WaitForSeconds(4); // we wait for a second before we attack everytime
+        anim.SetInteger("condition", 0);
+        
     }
 }
 
