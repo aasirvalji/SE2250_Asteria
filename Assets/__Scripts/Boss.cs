@@ -6,12 +6,13 @@ using UnityEngine.UI;
 
 public class Boss : MonoBehaviour
 {
-    public int maxHealth = 2000;
+    public int maxHealth = 20;
     public Text healthText;
     public int currentHealth;
     public HealthSlider healthBar;
 
     public GameObject gameOver;
+    public GameObject youWin;
 
     private Vector3 bossToPlayerDistance;
 
@@ -56,9 +57,11 @@ public class Boss : MonoBehaviour
             healthBar.SetHealth(currentHealth);
             healthText.text = "Health: " + currentHealth;
         }
-        else if (currentHealth <= 20)
+        else if (currentHealth < 20)
         {
-            gameOver.SetActive(true); // displays the message 'Game Over'
+            gameOver.SetActive(true);
+            youWin.SetActive(true);// displays the message 'Game Over'
+
 
             print("printing from Player.cs script");
             //SkinnedMeshRenderer temp = playerBody.GetComponent<SkinnedMeshRenderer>();
