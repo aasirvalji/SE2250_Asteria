@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 1107131975768477573}
   - component: {fileID: 1107131975768477575}
   - component: {fileID: 1107131975768477592}
+  - component: {fileID: 3640222354118588354}
   m_Layer: 0
   m_Name: Sea Creature
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,6 +78,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d5fb41e4ecd4747b0d8b9195d67377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
+  destroyPosition: {x: 0, y: 0, z: 0}
+  ring: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
+  gameOver: {fileID: 0}
+  restartLevel: {fileID: 0}
 --- !u!114 &1107131975768477592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,10 +92,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1107131975768477571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 154dbaf43720d4ef8b9834851129fd01, type: 3}
+  m_Script: {fileID: 11500000, guid: bd61aa98cab3047ffa99e1ba2000592e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -5
+  hazard: {fileID: 1107131975768477571}
+  spawnValues: {x: 10, y: 0, z: 0}
+  hazardCount: 0
+  spawnWait: 0
+  startWait: 0
+  waveWait: 0
+--- !u!114 &3640222354118588354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107131975768477571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4239de44b9d443849f380e23d585bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fSpeed: 3
 --- !u!1001 &1107131976588968055
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,6 +10,13 @@ TagManager:
   - Boundary
   - Teleporter
   - PointPickup
+  - Fire
+  - RingPickup
+  - Knight
+  - decoy
+  - gem
+  - correctGem
+  - orbAsteria
   layers:
   - Default
   - TransparentFX
