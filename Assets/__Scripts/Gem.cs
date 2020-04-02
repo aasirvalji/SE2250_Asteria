@@ -14,6 +14,9 @@ public class Gem : MonoBehaviour
     private Rigidbody _rb;
     private int _count;
 
+    public GameObject allGemsActive;
+    public GameObject orbOfAsteria;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,16 +44,25 @@ public class Gem : MonoBehaviour
             _count = _count + 1; //rubies are worth 1 point
             SetCountText();
         }
+
+        if (other.gameObject.CompareTag("orbAsteria"))
+        {
+            SceneManager.LoadScene("PostLevel3");
+        }
     }
 
     void SetCountText()
     {
         countText.text =  _count.ToString() + "/4 gems obtained";
-        if (_count >= 4) //if score is equal to 4, then print the win text
+        if (_count >= 1) //if score is equal to 4, then print the win text
         {
             winText.text = "4/4 gems found! The Orb of Asteria is complete.";
+            allGemsActive.SetActive(false);
+            orbOfAsteria.SetActive(true);
 
         }
+
     }
+
 
 }
