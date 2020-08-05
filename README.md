@@ -8,13 +8,19 @@ The rich man wishes you the best of luck!
 
 ### Level 1
 
-![](read_me_assets/landing.png)
+![](displayAssets/level1)
 
 ### Level 2
 
+![](displayAssets/level1)
+
 ### Level 3
 
+![](displayAssets/level1)
+
 ### Boss battle
+
+![](displayAssets/level1)
 
 # Controls
 W - Move Foward
