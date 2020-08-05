@@ -4,6 +4,18 @@ in order to get the reward as it is rumored that the reward is a massive cash pr
 
 The rich man wishes you the best of luck!
 
+# In-game display
+
+### Level 1
+
+![](read_me_assets/landing.png)
+
+### Level 2
+
+### Level 3
+
+### Boss battle
+
 # Controls
 W - Move Foward
 D - Move Right
